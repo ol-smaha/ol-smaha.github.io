@@ -54,32 +54,32 @@
             position: relative;
         }
 
-        /* Стиль для темних блоків з плавним рваним паперовим переходом як на image_97823b.png */
+        /* Стиль для темних блоків з ПЛАВНИМ і хвилястим ефектом рваного паперу */
         .dark-section {
             background-color: var(--accent-color);
             color: #fff;
-            padding: 90px 20px;
+            padding: 95px 20px;
             position: relative;
         }
         
-        /* Верхній плавний паперовий край */
+        /* Верхній плавний паперовий край без гострих кутів */
         .dark-section::before {
             content: "";
             position: absolute;
             top: -24px; left: 0; right: 0;
-            height: 25px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,120 Q35,55 75,75 T160,45 T270,85 T400,35 T530,70 T660,30 T790,80 T920,40 T1050,65 T1140,35 T1200,85 L1200,120 Z' fill='%236B1724'/%3E%3C/svg%3E");
+            height: 26px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,120 C60,90 130,105 190,85 C250,65 310,80 370,88 C430,96 490,75 550,62 C610,49 670,82 730,78 C790,74 850,58 910,67 C970,76 1030,92 1090,78 C1150,64 1175,72 1200,62 L1200,120 Z' fill='%236B1724'/%3E%3C/svg%3E");
             background-size: 100% 100%;
             z-index: 10;
         }
 
-        /* Нижній плавний паперовий край */
+        /* Нижній плавний паперовий край без гострих кутів */
         .dark-section::after {
             content: "";
             position: absolute;
             bottom: -24px; left: 0; right: 0;
-            height: 25px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0 Q35,65 75,45 T160,75 T270,35 T400,85 T530,50 T660,90 T790,40 T920,80 T1050,55 T1140,85 T1200,35 L1200,0 Z' fill='%236B1724'/%3E%3C/svg%3E");
+            height: 26px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0 C60,30 130,15 190,35 C250,55 310,40 370,32 C430,24 490,45 550,58 C610,71 670,38 730,42 C790,46 850,62 910,53 C970,44 1030,28 1090,42 C1150,56 1175,48 1200,38 L1200,0 Z' fill='%236B1724'/%3E%3C/svg%3E");
             background-size: 100% 100%;
             z-index: 10;
         }
@@ -142,6 +142,11 @@
             align-items: center;
             position: relative;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            cursor: pointer; /* Робимо прямокутник візуально клікабельним */
+            transition: transform 0.3s ease;
+        }
+        .envelope-placeholder:hover {
+            transform: scale(1.02);
         }
         .wax-seal {
             width: 60px;
@@ -155,6 +160,7 @@
             font-size: 1.5rem;
             color: var(--accent-color);
             box-shadow: inset 0 0 5px rgba(0,0,0,0.2), 0 2px 5px rgba(0,0,0,0.2);
+            pointer-events: none; /* Клік проходить крізь печатку на сам прямокутник */
         }
 
         /* Секція 2: Історія */
@@ -184,7 +190,7 @@
 
         /* Секція 3: Конверт на всю ширину сторінки */
         .section-envelope {
-            padding: 50px 0; /* Прибрали бічні паддінги для розтягування */
+            padding: 50px 0;
         }
         .open-envelope {
             position: relative;
@@ -218,12 +224,12 @@
             z-index: 2;
             box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
             border-radius: 4px;
-            transform: translateY(-90px); /* Витягнуто вище, щоб текст було повністю видно */
+            transform: translateY(-90px);
         }
         .env-front {
             position: absolute;
             bottom: 0; left: 0; right: 0;
-            height: 50%; /* Оптимальна висота, аби не перекривати лист */
+            height: 50%;
             background-color: var(--accent-color);
             z-index: 3;
             clip-path: polygon(0 100%, 100% 100%, 100% 0, 50% 35%, 0 0);
@@ -251,49 +257,50 @@
             align-items: center;
         }
         
-        /* Неідеальне коло з ефектом блиску */
+        /* Неідеальне "живе" коло з ефектом мерехтливого блиску */
         .highlight-date {
             position: relative;
             display: inline-block;
-            width: 36px;
-            height: 36px;
-            line-height: 32px;
+            width: 38px;
+            height: 38px;
+            line-height: 34px;
             color: var(--text-color);
             font-weight: 600;
             border: 2px solid var(--accent-color);
-            /* Створення ефекту неідеального кола від руки */
+            /* Органічна, неідеальна форма від руки */
             border-radius: 48% 53% 50% 55% / 52% 49% 53% 47%;
             overflow: hidden;
         }
         
-        /* Ефект легкого глянцевого блиску */
+        /* Ефект делікатного глянцевого відблиску всередині кола */
         .highlight-date::after {
             content: '';
             position: absolute;
             top: -50%; left: -60%;
-            width: 30%;
+            width: 35%;
             height: 200%;
-            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0) 100%);
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
             transform: rotate(30deg);
-            animation: lightShimmer 3s infinite linear;
+            animation: lightShimmer 3.5s infinite linear;
         }
 
         @keyframes lightShimmer {
             0% { left: -70%; }
-            30% { left: 130%; }
+            25% { left: 130%; }
             100% { left: 130%; }
         }
 
-        /* Секція 5: Місце */
+        /* Секція 5: Місце проведення з оновленим фото парку */
         .venue-img {
             width: 100%;
-            height: 250px;
+            height: 380px; /* Збільшено висоту для красивих пропорцій фото вертикального типу */
             background-color: #ddd;
-            background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=600&q=80');
+            background-image: url('Screenshot.jpg'); /* Ваше перше фото */
             background-size: cover;
             background-position: center;
-            margin: 20px 0;
-            border-radius: 5px;
+            margin: 25px 0;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
         .btn-outline {
             display: inline-block;
@@ -418,20 +425,22 @@
             cursor: pointer;
         }
 
-        /* Секція 9: Фінал */
-        .couple-illustration {
-            width: 250px;
-            height: 250px;
-            background-image: url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=400&q=80');
-            background-size: cover;
-            background-position: center;
-            border-radius: 20px;
-            margin: 30px 0;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        /* Секція 9: Фінал із красивою художньою карткою закоханих */
+        .couple-card-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
         }
-        .decor {
-            font-size: 1.5rem;
-            color: var(--btn-color);
+        .couple-illustration {
+            width: 100%;
+            max-width: 380px;
+            height: 550px; /* Висота підібрана під вертикальні пропорції художньої листівки */
+            background-image: url('ChatGPT Image 17 черв. 2026 р., 11_30_20.png'); /* Ваше друге фото */
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
         }
     </style>
 </head>
@@ -444,7 +453,7 @@
         <div class="hero-subtitle">ТИСНІТЬ СЮДИ</div>
         <div class="arrow-down">↓</div>
         
-        <div class="envelope-placeholder">
+        <div class="envelope-placeholder" onclick="document.getElementById('story').scrollIntoView({ behavior: 'smooth' });">
             <div class="wax-seal">ОВ</div>
         </div>
     </section>
@@ -465,7 +474,6 @@
         <p>Одне «так»</p>
     </section>
 
-    <!-- Секція з конвертом розтягнута на всю ширину екрану -->
     <section id="invite" class="fade-in section-envelope">
         <div class="open-envelope">
             <div class="env-back"></div>
@@ -492,7 +500,6 @@
                 <div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div>
                 <div>24</div><div>25</div><div>26</div><div>27</div>
                 <div>
-                    <!-- Оновлена дата з неідеальним колом та ефектом блиску -->
                     <span class="highlight-date">28</span>
                 </div>
                 <div>29</div><div>30</div>
@@ -501,21 +508,19 @@
         </div>
     </section>
 
-    <!-- Темна секція з рваними краями в стилі image_97823b.png -->
     <section id="venue" class="fade-in dark-section">
         <h2>Місце проведення</h2>
         <p>«Forest Park»<br>с. Пониковиця, Львівська область</p>
         
         <div class="venue-img"></div>
         
-        <a href="https://maps.app.goo.gl/uUzXosKcuNMk1ebC9" target="_blank" class="btn-outline">Подивитись на мапі</a>
+        <a href="https://maps.google.com" target="_blank" class="btn-outline">Подивитись на мапі</a>
     </section>
 
     <section id="dresscode" class="fade-in">
         <h2>Дрес-код</h2>
         <p>Нам головне ваша присутність, але ми будемо вдячні, якщо ви підтримаєте кольорову гаму нашого свята</p>
         
-        <!-- Оновлена палітра з 5 кольорів -->
         <div class="color-palette">
             <div class="color-circle" style="background-color: #8A9A86;" data-name="Sage Green"></div>
             <div class="color-circle" style="background-color: #F4E3CB;" data-name="Champagne"></div>
@@ -525,7 +530,6 @@
         </div>
     </section>
 
-    <!-- Темна секція з рваними краями в стилі image_97823b.png -->
     <section id="program" class="fade-in dark-section">
         <h2>Програма дня</h2>
         <div class="timeline">
@@ -576,12 +580,9 @@
     </section>
 
     <section id="footer" class="fade-in">
-        <div class="decor">♡</div>
-        <h2>Чекаємо на вас!</h2>
-        <div class="couple-illustration"></div>
-        <div class="decor">✨</div>
-        <h2 style="font-size: 2.5rem;">Олег та Вікторія</h2>
-        <div class="decor">♡</div>
+        <div class="couple-card-container">
+            <div class="couple-illustration"></div>
+        </div>
     </section>
 
 </div>

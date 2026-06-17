@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Весільне запрошення | Ярослав та Інна</title>
+    <title>Весільне запрошення | Олег та Вікторія</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
@@ -40,17 +40,51 @@
             background-color: var(--bg-color);
             box-shadow: 0 0 20px rgba(0,0,0,0.05);
             overflow-x: hidden;
+            position: relative;
         }
 
         section {
             min-height: 100vh;
-            padding: 40px 20px;
+            padding: 50px 20px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             position: relative;
+        }
+
+        /* Стиль для темних блоків із рваними краями */
+        .dark-section {
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 80px 20px;
+        }
+        
+        .dark-section::before,
+        .dark-section::after {
+            content: "";
+            position: absolute;
+            left: 0; right: 0;
+            height: 15px;
+            background-color: var(--bg-color);
+            z-index: 10;
+        }
+        
+        /* Рваний край зверху */
+        .dark-section::before {
+            top: -1px;
+            clip-path: polygon(0% 0%, 2% 100%, 4% 0%, 6% 100%, 8% 0%, 10% 100%, 12% 0%, 14% 100%, 16% 0%, 18% 100%, 20% 0%, 22% 100%, 24% 0%, 26% 100%, 28% 0%, 30% 100%, 32% 0%, 34% 100%, 36% 0%, 38% 100%, 40% 0%, 42% 100%, 44% 0%, 46% 100%, 48% 0%, 50% 100%, 52% 0%, 54% 100%, 56% 0%, 58% 100%, 60% 0%, 62% 100%, 64% 0%, 66% 100%, 68% 0%, 70% 100%, 72% 0%, 74% 100%, 76% 0%, 78% 100%, 80% 0%, 82% 100%, 84% 0%, 86% 100%, 88% 0%, 90% 100%, 92% 0%, 94% 100%, 96% 0%, 98% 100%, 100% 0%);
+        }
+
+        /* Рваний край знизу */
+        .dark-section::after {
+            bottom: -1px;
+            clip-path: polygon(0% 100%, 2% 0%, 4% 100%, 6% 0%, 8% 100%, 10% 0%, 12% 100%, 14% 0%, 16% 100%, 18% 0%, 20% 100%, 22% 0%, 24% 100%, 26% 0%, 28% 100%, 30% 0%, 32% 100%, 34% 0%, 36% 100%, 38% 0%, 40% 100%, 42% 0%, 44% 100%, 46% 0%, 48% 100%, 50% 0%, 52% 100%, 54% 0%, 56% 100%, 58% 0%, 60% 100%, 62% 0%, 64% 100%, 66% 0%, 68% 100%, 70% 0%, 72% 100%, 74% 0%, 76% 100%, 78% 0%, 80% 100%, 82% 0%, 84% 100%, 86% 0%, 88% 100%, 90% 0%, 92% 100%, 94% 0%, 96% 100%, 98% 0%, 100% 100%);
+        }
+
+        .dark-section h2, .dark-section p {
+            color: #fff;
         }
 
         h1, h2 {
@@ -141,27 +175,65 @@
         .photo-frame:nth-child(3) {
             transform: rotate(3deg);
         }
-        .photo-frame div {
+        .photo-frame img {
             width: 100%;
             height: 100%;
-            background-color: #ddd; /* Заглушка для фото */
+            object-fit: cover;
         }
 
-        /* Секція 3: Запрошення */
-        .invite-card {
-            background: #fff;
-            padding: 40px 20px;
+        /* Секція 3: Відкритий конверт із запрошенням */
+        .open-envelope {
+            position: relative;
+            width: 100%;
+            max-width: 380px;
+            margin: 20px auto;
+            padding-top: 30px;
+            padding-bottom: 20px;
+        }
+        .env-back {
+            position: absolute;
+            top: 30px; bottom: 0; left: 0; right: 0;
+            background-color: #5a101d; /* Темніший бордовий для глибини */
             border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            z-index: 1;
+        }
+        .env-flap-top {
+            position: absolute;
+            top: 30px; left: 0; right: 0;
+            height: 40%;
+            background-color: #731826;
+            z-index: 1;
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            opacity: 0.8;
+        }
+        .env-letter {
+            background: #fff;
+            color: var(--text-color);
+            width: 88%;
+            margin: 0 auto;
+            padding: 35px 20px;
             position: relative;
             z-index: 2;
-            color: var(--text-color);
+            box-shadow: 0 0 15px rgba(0,0,0,0.15);
+            border-radius: 3px;
+            transform: translateY(-20px);
+        }
+        .env-front {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 65%;
+            background-color: var(--accent-color);
+            z-index: 3;
+            clip-path: polygon(0 100%, 100% 100%, 100% 0, 50% 35%, 0 0);
+            border-radius: 0 0 5px 5px;
         }
 
         /* Секція 4: Календар */
         .calendar {
             margin-top: 20px;
             font-family: var(--font-main);
+            width: 100%;
+            max-width: 320px;
         }
         .days-header, .days-grid {
             display: grid;
@@ -178,15 +250,17 @@
             width: 30px;
             height: 30px;
             line-height: 30px;
-            border: 1px solid var(--text-color);
+            border: 1px solid var(--accent-color);
             border-radius: 50%;
+            background-color: var(--accent-color);
+            color: #fff;
         }
         .ring-icon {
             position: absolute;
-            top: -15px;
+            top: -18px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 1rem;
+            font-size: 1.2rem;
         }
 
         /* Секція 5: Місце */
@@ -194,19 +268,27 @@
             width: 100%;
             height: 250px;
             background-color: #ddd;
+            background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=600&q=80'); /* Лісовий парк заглушка */
+            background-size: cover;
+            background-position: center;
             margin: 20px 0;
             border-radius: 5px;
         }
         .btn-outline {
             display: inline-block;
             padding: 12px 30px;
-            border: 1px solid var(--text-color);
+            border: 1px solid #fff;
             border-radius: 25px;
             text-decoration: none;
-            color: var(--text-color);
+            color: #fff;
             font-size: 1.1rem;
             margin-top: 20px;
             background: transparent;
+            transition: background 0.3s, color 0.3s;
+        }
+        .btn-outline:hover {
+            background: #fff;
+            color: var(--accent-color);
         }
 
         /* Секція 6: Дрес-код */
@@ -222,6 +304,19 @@
             height: 50px;
             border-radius: 50%;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        /* Підказки кольорів при наведенні або просто для краси */
+        .color-circle::after {
+            content: attr(data-name);
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            white-space: nowrap;
+            color: var(--text-color);
+            opacity: 0.8;
         }
 
         /* Секція 7: Програма */
@@ -306,9 +401,12 @@
         .couple-illustration {
             width: 250px;
             height: 250px;
-            background-color: #ddd;
+            background-image: url('https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=400&q=80');
+            background-size: cover;
+            background-position: center;
             border-radius: 20px;
             margin: 30px 0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         .decor {
             font-size: 1.5rem;
@@ -326,61 +424,76 @@
         <div class="arrow-down">↓</div>
         
         <div class="envelope-placeholder">
-            <div class="wax-seal">ЯІ</div>
+            <div class="wax-seal">ОВ</div>
         </div>
     </section>
 
     <section id="story" class="fade-in">
         <h2>Впізнали?</h2>
         <div class="photos-container">
-            <div class="photo-frame"><div></div></div>
+            <!-- Дитяче фото хлопчика -->
+            <div class="photo-frame">
+                <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=200&h=240&fit=crop" alt="Хлопчик">
+            </div>
             <div style="font-size: 1.5rem;">+</div>
-            <div class="photo-frame"><div></div></div>
+            <!-- Дитяче фото дівчинки -->
+            <div class="photo-frame">
+                <img src="https://images.unsplash.com/photo-1604004555489-723a93d6ce74?w=200&h=240&fit=crop" alt="Дівчинка">
+            </div>
         </div>
         <p>Маленькі ми...</p>
         <p>Дві історії</p>
         <p>Одне «так»</p>
     </section>
 
-    <section id="invite" class="fade-in" style="background-color: var(--accent-color); color: #fff;">
-        <div class="invite-card">
-            <h2>Любі Гості!</h2>
-            <p>Ми раді запросити вас на наше весілля — у день, сповнений любові, світла й справжніх емоцій.</p>
-            <br>
-            <p>Приєднуйтесь, щоб відсвяткувати цей особливий день разом з нами.</p>
+    <!-- Світла секція з відкритим бордовим конвертом -->
+    <section id="invite" class="fade-in">
+        <div class="open-envelope">
+            <div class="env-back"></div>
+            <div class="env-flap-top"></div>
+            <div class="env-letter">
+                <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Любі Гості!</h2>
+                <p style="font-size: 1.1rem;">Ми раді запросити вас на наше весілля — у день, сповнений любові, світла й справжніх емоцій.</p>
+                <br>
+                <p style="font-size: 1.1rem;">Приєднуйтесь, щоб відсвяткувати цей особливий день разом з нами.</p>
+            </div>
+            <div class="env-front"></div>
         </div>
     </section>
 
     <section id="calendar-sec" class="fade-in">
-        <h2>Липень</h2>
+        <h2>Серпень 2026</h2>
         <div class="calendar">
             <div class="days-header">
                 <div>Пн</div><div>Вт</div><div>Ср</div><div>Чт</div><div>Пт</div><div>Сб</div><div>Нд</div>
             </div>
             <div class="days-grid">
-                <div></div><div></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div>
-                <div>6</div><div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div>
-                <div>13</div><div>14</div><div>15</div><div>16</div><div>17</div>
+                <!-- Серпень 2026 починається у Суботу. Пропускаємо 5 днів -->
+                <div></div><div></div><div></div><div></div><div></div><div>1</div><div>2</div>
+                <div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div>
+                <div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div>
+                <div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div>
+                <div>24</div><div>25</div><div>26</div><div>27</div>
                 <div>
                     <span class="highlight-date">
                         <span class="ring-icon">💎</span>
-                        18
+                        28
                     </span>
                 </div>
-                <div>19</div>
-                <div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div>
-                <div>27</div><div>28</div><div>29</div><div>30</div><div>31</div><div></div><div></div>
+                <div>29</div><div>30</div>
+                <div>31</div><div></div><div></div><div></div><div></div><div></div><div></div>
             </div>
         </div>
     </section>
 
-    <section id="venue" class="fade-in" style="background-color: var(--accent-color); color: #fff;">
-        <h2 style="color: #fff;">Місце проведення</h2>
-        <p>Ресторан «Маяк»<br>Дніпровська набережна, 2, Київ</p>
+    <!-- Темна секція з рваними краями -->
+    <section id="venue" class="fade-in dark-section">
+        <h2>Місце проведення</h2>
+        <p>«Forest Park»<br>с. Пониковиця, Львівська область</p>
         
         <div class="venue-img"></div>
         
-        <a href="#" class="btn-outline" style="color: #fff; border-color: #fff;">Подивитись на мапі</a>
+        <a href="https://maps.app.goo.gl/uUzXosKcuNMk1ebC9" target="_blank" class="btn-outline">Подивитись на мапі</a>
     </section>
 
     <section id="dresscode" class="fade-in">
@@ -388,17 +501,20 @@
         <p>Нам головне ваша присутність, але ми будемо вдячні, якщо ви підтримаєте кольорову гаму нашого свята</p>
         
         <div class="color-palette">
-            <div class="color-circle" style="background-color: #6B1724;"></div>
-            <div class="color-circle" style="background-color: #801424;"></div>
-            <div class="color-circle" style="background-color: #A64B58;"></div>
-            <div class="color-circle" style="background-color: #D9A0A8;"></div>
-            <div class="color-circle" style="background-color: #E6DCC8;"></div>
-            <div class="color-circle" style="background-color: #C5A059;"></div>
+            <div class="color-circle" style="background-color: #FAF6EE; border: 1px solid #ddd;" data-name="Ivory"></div>
+            <div class="color-circle" style="background-color: #F5F5DC;" data-name="Беж"></div>
+            <div class="color-circle" style="background-color: #202A44;" data-name="Navy"></div>
+            <div class="color-circle" style="background-color: #4A4A4A;" data-name="Графітовий"></div>
+            <div class="color-circle" style="background-color: #4E342E;" data-name="Шоколадний"></div>
+            <div class="color-circle" style="background-color: #8B8589;" data-name="Taupe"></div>
+            <div class="color-circle" style="background-color: #9DC183;" data-name="Sage Green"></div>
+            <div class="color-circle" style="background-color: #C08A8A;" data-name="Dusty Rose"></div>
         </div>
     </section>
 
-    <section id="program" class="fade-in" style="background-color: var(--accent-color); color: #fff;">
-        <h2 style="color: #fff;">Програма дня</h2>
+    <!-- Темна секція з рваними краями -->
+    <section id="program" class="fade-in dark-section">
+        <h2>Програма дня</h2>
         <div class="timeline">
             <div class="timeline-item">
                 <div class="t-text left">ЗУСТРІЧ<br>ГОСТЕЙ</div>
@@ -459,7 +575,7 @@
         <h2>Чекаємо на вас!</h2>
         <div class="couple-illustration"></div>
         <div class="decor">✨</div>
-        <h2 style="font-size: 2.5rem;">Ярослав та Інна</h2>
+        <h2 style="font-size: 2.5rem;">Олег та Вікторія</h2>
         <div class="decor">♡</div>
     </section>
 

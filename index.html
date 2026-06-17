@@ -9,11 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #FAF6EE;       /* Гармонійний відтінок Ivory (слонова кістка) */
-            --text-color: #4A121A;     /* Глибокий винний колір для тексту */
-            --accent-color: #6B1724;   /* Благородний Burgundy для акцентних блоків */
-            --btn-color: #801424;      /* Насичений бордовий для кнопок та активних елементів */
-            --border-color: #E6DCC8;   /* М'який пастельний колір для меж та ліній */
+            --bg-color: #FAF6EE;       
+            --text-color: #4A121A;     
+            --accent-color: #6B1724;   
+            --btn-color: #801424;      
+            --border-color: #E6DCC8;   
             --font-cursive: 'Great Vibes', cursive;
             --font-main: 'Cormorant Garamond', serif;
         }
@@ -33,7 +33,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Мобільний контейнер (щоб на ПК виглядало як телефон) */
         .app-container {
             max-width: 480px;
             margin: 0 auto;
@@ -54,7 +53,6 @@
             position: relative;
         }
 
-        /* Стиль для темних блоків з ПЛАВНИМ і хвилястим ефектом рваного паперу */
         .dark-section {
             background-color: var(--accent-color);
             color: #fff;
@@ -62,7 +60,6 @@
             position: relative;
         }
         
-        /* Верхній плавний паперовий край без гострих кутів */
         .dark-section::before {
             content: "";
             position: absolute;
@@ -73,7 +70,6 @@
             z-index: 10;
         }
 
-        /* Нижній плавний паперовий край без гострих кутів */
         .dark-section::after {
             content: "";
             position: absolute;
@@ -103,7 +99,6 @@
             font-size: 1.2rem;
         }
 
-        /* Анімації появи при скролі */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -114,7 +109,6 @@
             transform: translateY(0);
         }
 
-        /* Секція 1: Головна */
         .hero-subtitle {
             font-size: 1rem;
             letter-spacing: 2px;
@@ -142,7 +136,7 @@
             align-items: center;
             position: relative;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            cursor: pointer; /* Робимо прямокутник візуально клікабельним */
+            cursor: pointer;
             transition: transform 0.3s ease;
         }
         .envelope-placeholder:hover {
@@ -160,10 +154,9 @@
             font-size: 1.5rem;
             color: var(--accent-color);
             box-shadow: inset 0 0 5px rgba(0,0,0,0.2), 0 2px 5px rgba(0,0,0,0.2);
-            pointer-events: none; /* Клік проходить крізь печатку на сам прямокутник */
+            pointer-events: none;
         }
 
-        /* Секція 2: Історія */
         .photos-container {
             display: flex;
             align-items: center;
@@ -188,7 +181,6 @@
             object-fit: cover;
         }
 
-        /* Секція 3: Конверт на всю ширину сторінки */
         .section-envelope {
             padding: 50px 0;
         }
@@ -235,7 +227,6 @@
             clip-path: polygon(0 100%, 100% 100%, 100% 0, 50% 35%, 0 0);
         }
 
-        /* Секція 4: Календар */
         .calendar {
             margin-top: 20px;
             font-family: var(--font-main);
@@ -257,7 +248,6 @@
             align-items: center;
         }
         
-        /* Неідеальне "живе" коло з ефектом мерехтливого блиску */
         .highlight-date {
             position: relative;
             display: inline-block;
@@ -267,12 +257,10 @@
             color: var(--text-color);
             font-weight: 600;
             border: 2px solid var(--accent-color);
-            /* Органічна, неідеальна форма від руки */
             border-radius: 48% 53% 50% 55% / 52% 49% 53% 47%;
             overflow: hidden;
         }
         
-        /* Ефект делікатного глянцевого відблиску всередині кола */
         .highlight-date::after {
             content: '';
             position: absolute;
@@ -290,18 +278,19 @@
             100% { left: 130%; }
         }
 
-        /* Секція 5: Місце проведення з оновленим фото парку */
+        /* Оновлене фото локації (Screenshot.jpg) */
         .venue-img {
             width: 100%;
-            height: 380px; /* Збільшено висоту для красивих пропорцій фото вертикального типу */
+            height: 390px; 
             background-color: #ddd;
-            background-image: url('Screenshot.jpg'); /* Ваше перше фото */
+            background-image: url('Screenshot.jpg'); 
             background-size: cover;
             background-position: center;
             margin: 25px 0;
             border-radius: 6px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
+        
         .btn-outline {
             display: inline-block;
             padding: 12px 30px;
@@ -319,7 +308,6 @@
             color: var(--accent-color);
         }
 
-        /* Секція 6: Дрес-код */
         .color-palette {
             display: flex;
             justify-content: center;
@@ -347,7 +335,6 @@
             font-weight: 600;
         }
 
-        /* Секція 7: Програма */
         .timeline {
             margin-top: 30px;
             width: 100%;
@@ -382,7 +369,6 @@
             background-color: #fff;
         }
 
-        /* Секція 8: Форма RSVP */
         form {
             width: 100%;
             text-align: left;
@@ -425,7 +411,6 @@
             cursor: pointer;
         }
 
-        /* Секція 9: Фінал із красивою художньою карткою закоханих */
         .couple-card-container {
             width: 100%;
             display: flex;
@@ -433,11 +418,12 @@
             align-items: center;
             padding: 10px 0;
         }
+        /* Оновлена ілюстрація закоханих (ChatGPT Image 17 черв. 2026 р., 11_30_20.png) */
         .couple-illustration {
             width: 100%;
             max-width: 380px;
-            height: 550px; /* Висота підібрана під вертикальні пропорції художньої листівки */
-            background-image: url('ChatGPT Image 17 черв. 2026 р., 11_30_20.png'); /* Ваше друге фото */
+            height: 550px; 
+            background-image: url('ChatGPT Image 17 черв. 2026 р., 11_30_20.png'); 
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -557,7 +543,7 @@
 
     <section id="wishes" class="fade-in">
         <h2>Побажання</h2>
-        <p>Просимо вас не дарувати нам квіти, на жаль, ми не встигнемо насолодитися їх красою.</p>
+        <p>Просимо вас не дарувати нам квіти, на жаль, ми не встигнемо насолодитися їх красаю.</p>
         <br>
         <p>Приємним компліментом для нас буде, якщо ви замість квітів вирішите подарувати нам набір ваших улюблених спецій або пляшку алкогольного напою для нашої колекції.</p>
     </section>

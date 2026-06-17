@@ -278,17 +278,20 @@
             100% { left: 130%; }
         }
 
-        /* Оновлене фото локації (Screenshot.jpg) */
-        .venue-img {
+        /* Оновлений контейнер для фото Screenshot.jpg через тег img */
+        .venue-img-container {
             width: 100%;
             height: 390px; 
-            background-color: #ddd;
-            background-image: url('Screenshot.jpg'); 
-            background-size: cover;
-            background-position: center;
             margin: 25px 0;
             border-radius: 6px;
+            overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        .venue-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
         }
         
         .btn-outline {
@@ -418,12 +421,11 @@
             align-items: center;
             padding: 10px 0;
         }
-        /* Оновлена ілюстрація закоханих (ChatGPT Image 17 черв. 2026 р., 11_30_20.png) */
         .couple-illustration {
             width: 100%;
             max-width: 380px;
             height: 550px; 
-            background-image: url('ChatGPT Image 17 черв. 2026 р., 11_30_20.png'); 
+            background-image: url('ChatGPT%20Image%2017%20черв.%202026%20р.,%2011_30_20.png'); 
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -498,14 +500,17 @@
         <h2>Місце проведення</h2>
         <p>«Forest Park»<br>с. Пониковиця, Львівська область</p>
         
-        <div class="venue-img"></div>
+        <!-- Фото перенесено безпосередньо в тег img для гарантованого завантаження -->
+        <div class="venue-img-container">
+            <img src="Screenshot.jpg" alt="Локація Forest Park">
+        </div>
         
         <a href="https://maps.google.com" target="_blank" class="btn-outline">Подивитись на мапі</a>
     </section>
 
     <section id="dresscode" class="fade-in">
         <h2>Дрес-код</h2>
-        <p>Нам головне ваша присутність, але ми будемо вдячні, якщо ви підтримаєте кольорову гаму нашого свята</p>
+        <p>Нам головне ваша присутність, але we будемо вдячні, якщо ви підтримаєте кольорову гаму нашого свята</p>
         
         <div class="color-palette">
             <div class="color-circle" style="background-color: #8A9A86;" data-name="Sage Green"></div>
@@ -517,7 +522,7 @@
     </section>
 
     <section id="program" class="fade-in dark-section">
-        <h2>Програма дня</h2>
+        <h2>Program дня</h2>
         <div class="timeline">
             <div class="timeline-item">
                 <div class="t-text left">ЗУСТРІЧ<br>ГОСТЕЙ</div>
@@ -543,7 +548,7 @@
 
     <section id="wishes" class="fade-in">
         <h2>Побажання</h2>
-        <p>Просимо вас не дарувати нам квіти, на жаль, ми не встигнемо насолодитися їх красаю.</p>
+        <p>Просимо вас не дарувати нам квіти, на жаль, ми не встигнемо насолодитися їх красою.</p>
         <br>
         <p>Приємним компліментом для нас буде, якщо ви замість квітів вирішите подарувати нам набір ваших улюблених спецій або пляшку алкогольного напою для нашої колекції.</p>
     </section>

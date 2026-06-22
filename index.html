@@ -158,26 +158,27 @@
 
         .envelope-letter-peek {
             position: absolute;
+        
+            /* вужчий лист */
             left: 10%;
             right: 10%;
-            top: 20%;
-            height: 65%;
+        
+            /* піднімаємо вище */
+            top: 0%;
+            height: 60%;
         
             background: #fffdf8;
         
-            /* верх рівний, низ обрізаний */
             clip-path: polygon(
                 0 0,
                 100% 0,
-                100% 78%,
-                75% 88%,
+                100% 65%,
                 50% 100%,
-                25% 88%,
-                0 78%
+                0 65%
             );
         
             opacity: 0;
-            transform: translateY(40%) translateZ(-10px);
+            transform: translateY(85%) translateZ(-10px);
         
             transition:
                 transform 1s cubic-bezier(.2,.85,.25,1),
@@ -230,7 +231,7 @@
 
         .envelope-placeholder.opening .envelope-letter-peek {
             opacity: 1;
-            transform: translateY(8%) translateZ(25px);
+            transform: translateY(-10%) translateZ(25px);
         }
         .envelope-placeholder .envelope-fold {
             position: absolute;
@@ -246,7 +247,7 @@
         .envelope-placeholder .envelope-fold::after {
             content: "";
             position: absolute;
-            top: 37%;
+            top: 30%;
             width: 60%;
             height: 3px;
             background: #3d0b14;
@@ -255,8 +256,8 @@
         }
         
         .envelope-placeholder .envelope-fold::before {
-            left: 1%;
-            width: 54%;
+            left: 5%;
+            width: 50%;
             transform: rotate(36deg);
         }
 
@@ -265,8 +266,8 @@
         }
         
         .envelope-placeholder .envelope-fold::after {
-            right: 1%;
-            width: 54%;
+            right: 5%;
+            width: 50%;
             transform: rotate(-36deg);
         }
 

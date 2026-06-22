@@ -209,23 +209,24 @@
         .envelope-placeholder .envelope-fold::after {
             content: "";
             position: absolute;
-            top: 18%;
-            width: 44%;
-            height: 3px;
+            top: 0;
+            width: 2px;
+            height: 55%;
             background: #3d0b14;
-            box-shadow: 0 1px 2px rgba(0,0,0,.15);
-            transform-origin: center;
+            transform-origin: top center;
+            box-shadow: 0 1px 2px rgba(0,0,0,.2);
         }
-        
+
         .envelope-placeholder .envelope-fold::before {
-            left: 7%;
-            transform: rotate(36deg);
+            left: 0;
+            transform: rotate(35deg);
+        }
+
+        .envelope-placeholder .envelope-fold::after {
+            right: 0;
+            transform: rotate(-35deg);
         }
         
-        .envelope-placeholder .envelope-fold::after {
-            right: 7%;
-            transform: rotate(-36deg);
-        }
         .wax-seal {
             width: 74px;
             height: 74px;

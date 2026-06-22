@@ -164,7 +164,17 @@
             height: 65%;
         
             background: #fffdf8;
-            border-radius: 6px;
+        
+            /* верх рівний, низ обрізаний */
+            clip-path: polygon(
+                0 0,
+                100% 0,
+                100% 78%,
+                75% 88%,
+                50% 100%,
+                25% 88%,
+                0 78%
+            );
         
             opacity: 0;
             transform: translateY(40%) translateZ(-10px);
@@ -220,7 +230,7 @@
 
         .envelope-placeholder.opening .envelope-letter-peek {
             opacity: 1;
-            transform: translateY(-15%) translateZ(25px);
+            transform: translateY(8%) translateZ(25px);
         }
         .envelope-placeholder .envelope-fold {
             position: absolute;

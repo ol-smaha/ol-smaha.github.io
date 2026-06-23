@@ -725,11 +725,23 @@
             border-radius: 8px;
             box-shadow: 0 6px 15px rgba(74,18,26,0.12);
             border: 1px solid #E6DCC8;
+        
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* цифра зверху, текст внизу */
+            align-items: center;
+            padding: 10px 0;
         }
         
         .count-item span {
             font-size: 2.2rem;
             color: var(--accent-color);
+            line-height: 1;
+        }
+        
+        .count-item small {
+            font-size: 1rem;
+            line-height: 1;
         }
 
         .dresscode-palette{
@@ -878,6 +890,10 @@
     <section id="venue" class="fade-in dark-section">
         <h2>Місце проведення</h2>
         <p>«Forest Park»<br>с. Пониковиця, Львівська область</p>
+        <p id="transfer-info" style="display:none; margin-top:15px; font-size:1.1rem;">
+            З села Топорів буде відбуватись трансфер автобусом. 
+            Про деталі повідомимо пізніше.
+        </p>
         
         <!-- Фото перенесено безпосередньо в тег img для гарантованого завантаження -->
         <div class="venue-img-container">
@@ -1019,6 +1035,12 @@
             }
         
             guestTitle.textContent = `${guest}!`;
+        }
+
+        const transfer = params.get('transfer');
+
+        if (transfer && transfer.toLowerCase() === 'true') {
+            document.getElementById('transfer-info').style.display = 'block';
         }
         
         const envelope = document.querySelector('.envelope-placeholder');
